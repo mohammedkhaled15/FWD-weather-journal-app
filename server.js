@@ -28,13 +28,16 @@ const server = app.listen(port,()=>{console.log(`Here is my port: ${port}`)})
 /*************************************************************************************************/
 
 app.post("/geo",(req,res)=>{
-    // console.log()
     const newEntry={
         name:req.body.name,
         lat:req.body.lat,
         lon:req.body.lon
     }
-    projectData.push(newEntry)
-    console.log(projectData)
+    projectData.unshift(newEntry)
+    // console.log(req.body)
 })
 
+app.get("/latlon",(req,res)=>{
+    res.send(projectData[0])
+    // console.log(projectData[0])
+})
