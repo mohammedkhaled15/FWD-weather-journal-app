@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+let projectData = [];
 
 // Require Express to run server and routes
 const express = require("express")
@@ -24,3 +24,17 @@ app.use(express.static('website'));
 // Setup Server
 const port = 3333
 const server = app.listen(port,()=>{console.log(`Here is my port: ${port}`)})
+
+/*************************************************************************************************/
+
+app.post("/geo",(req,res)=>{
+    // console.log()
+    const newEntry={
+        name:req.body.name,
+        lat:req.body.lat,
+        lon:req.body.lon
+    }
+    projectData.push(newEntry)
+    console.log(projectData)
+})
+
