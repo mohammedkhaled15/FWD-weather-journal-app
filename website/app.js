@@ -41,8 +41,8 @@ const retriveData = async (url="")=>{
     const resp = await fetch(url)
     try {
     // Transform into JSON
-    const allData = await resp.json()
-    console.log(allData)
+    const allData = await resp.json();
+    // console.log(allData)
     document.getElementById("date").innerHTML = `Date: ${newDate}`;
     document.getElementById('temp').innerHTML = `Temp now is ${Math.round(allData.temp)} degrees`;
     document.getElementById('content').innerHTML = `My feelings:  ${allData.feelings} `;
