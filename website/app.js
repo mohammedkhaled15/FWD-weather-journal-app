@@ -15,7 +15,11 @@ let newDate = d.getDate()+' / '+ (d.getMonth() + 1)+' / '+ d.getFullYear();
 
 
 document.getElementById("generate").addEventListener("click",function(){
-    triggerAll()
+    if(zip.value === "" || zip.value.length!==5){
+        alert("incorrect or empty zip code")
+    }else{
+        triggerAll()
+    }
 })
 
 
@@ -43,9 +47,11 @@ const retriveData = async (url="")=>{
     // Transform into JSON
     const allData = await resp.json();
     // console.log(allData)
+    document.getElementById('city').innerHTML = `City Name:  ${allData.name} `;
     document.getElementById("date").innerHTML = `Date: ${newDate}`;
-    document.getElementById('temp').innerHTML = `Temp now is ${Math.round(allData.temp)} degrees`;
+    document.getElementById('temp').innerHTML = `Temp now is <span>${Math.round(allData.temp)}</span> degrees`;
     document.getElementById('content').innerHTML = `My feelings:  ${allData.feelings} `;
+    document.getElementById("icon").setAttribute("src",` http://openweathermap.org/img/wn/${allData.icon}@2x.png`)
     }
     catch(error) {
         console.log("error", error);
@@ -55,10 +61,19 @@ const retriveData = async (url="")=>{
 
 
 function triggerAll(){
+
     fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zip.value}&appid=${apiKey}`)
+
     .then((response)=>{return response.json()})
+
+    // .then((response)=>{console.log(response)})
+
     .then((response)=>fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
+
     .then((response)=>{return response.json()})
+
     .then((response)=>postGeoData("/geo",[response,feeling.value]))
-    .then(retriveData("/latlon"))
+
+    .then(retriveData("/allData"))
+
 }

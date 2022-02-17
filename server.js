@@ -30,13 +30,15 @@ const server = app.listen(port,()=>{console.log(`Here is my port: ${port}`)})
 app.post("/geo",(req,res)=>{
     const newEntry={
         temp:req.body[0].main.temp,
-        feelings:req.body[1]
+        feelings:req.body[1],
+        name:req.body[0].name,
+        icon:req.body[0].weather[0].icon
     }
     projectData.unshift(newEntry)
-    // console.log(req.body)
+    // console.log(req.body[0].weather[0].icon)
 })
 
-app.get("/latlon",(req,res)=>{
-    res.send(projectData[0])
+app.get("/allData",(req,res)=>{
+    res.status(200).send(projectData[0])
     // console.log(projectData[0]) 
 })

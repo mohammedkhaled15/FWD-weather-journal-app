@@ -7,7 +7,7 @@
 /* f0d43a */
 :root{
     --main-color:#ebe7d7;
-    --back-ground:#8f728d;
+    --back-ground:#503b4e;
 }
 
 body{
@@ -23,7 +23,7 @@ body{
     align-items: center;
     /* grid-template-columns:  */
     /* height:100vh; */
-    background: #472f34;
+    background: #88797c;
     color:var(--main-color);
     justify-content: center;
     grid-gap: 1em;
@@ -51,13 +51,18 @@ body{
     padding: 20px;
     font-size: 18px;
 }
+.image{
+    text-align: center;
+}
 
 #date{
 
 }
 
-#temp{
-
+#temp span{
+    color: red;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 #content{
@@ -70,7 +75,6 @@ body{
     letter-spacing: 3px;
 }
 .title{
-    padding: 20px;
     font-size: 22px;
     font-weight: bold;
     text-align: center;
