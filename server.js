@@ -29,9 +29,9 @@ const server = app.listen(port,()=>{console.log(`Here is my port: ${port}`)})
 
 app.post("/geo",(req,res)=>{
     const newEntry={
-        name:req.body.name,
-        lat:req.body.lat,
-        lon:req.body.lon
+        temp:req.body.main.temp,
+        feel:req.body.main.feels_like,
+        date:req.body.dt
     }
     projectData.unshift(newEntry)
     // console.log(req.body)
@@ -39,5 +39,5 @@ app.post("/geo",(req,res)=>{
 
 app.get("/latlon",(req,res)=>{
     res.send(projectData[0])
-    // console.log(projectData[0])
+    console.log(projectData[0])
 })
