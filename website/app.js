@@ -6,7 +6,7 @@ let zip = document.getElementById("zip")
 let feeling = document.getElementById("feelings")
 
 // Personal API Key for OpenWeatherMap API
-const apiKey = 'f3df22d37e0ab270347f62a9b3d4cc89&units=imperial';
+const apiKey = 'f3df22d37e0ab270347f62a9b3d4cc89&units=metric';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -66,7 +66,11 @@ function triggerAll(){
 
     .then((response)=>{return response.json()})
 
-    // .then((response)=>{console.log(response)})
+    // .then((response)=>{
+    //     response.cod === "404"?alert("Cannot Find ZipCode"):response
+    //     // console.log(response.cod)
+    // })
+    // .then((response)=>console.log(response))
 
     .then((response)=>fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
 
