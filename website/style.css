@@ -4,6 +4,11 @@
     box-sizing: border-box;
     letter-spacing: 4.5px;
 }
+/* f0d43a */
+:root{
+    --main-color:#ebe7d7;
+    --back-ground:#8f728d;
+}
 
 body{
     background: #fffff8;
@@ -17,9 +22,9 @@ body{
     flex-direction: column;
     align-items: center;
     /* grid-template-columns:  */
-    height:100vh;
+    /* height:100vh; */
     background: #472f34;
-    color: #f0d43a;
+    color:var(--main-color);
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -29,6 +34,7 @@ body{
 .holder{
 
 }
+
 #zip{
     width: 100%;
     font-size: 2rem;
@@ -74,25 +80,27 @@ body{
 label{
     display:block;
     font-size: 27px;
+    text-align: center;
 }
 
 input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    background:var(--back-ground);
+    color: var(--main-color);
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
     text-indent: 15px;
+    text-align: center;
 }
 
 button{
     width: 50%;
     height: 80px;
-    background: #3b4a6b;
-    color: #f0d43a;
+    background: var(--back-ground);
+    color: var(--main-color);
     font-size: 3rem;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -105,12 +113,14 @@ h1{
 }
 
 textarea{
-    background:#22b2da;
-    color: #f0d43a;
+    background:var(--back-ground);
+    color: var(--main-color);
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     padding: 20px;
     width: 100%;
+    resize:vertical;
+
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
@@ -121,19 +131,25 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: var(--main-color); 
     font-family: 'Oswald', sans-serif;
 
 } 
-  
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: var(--main-color); 
     font-family: 'Oswald', sans-serif;
 
 } 
-  
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: var(--main-color); 
     font-family: 'Oswald', sans-serif;
-
 } 
+.myInput::-webkit-scrollbar{
+    width: 0 !important;
+}
+.myInput{
+    overflow:-moz-hidden-unscrollable;
+}
+.myInput{
+    -ms-overflow-style:none;
+}

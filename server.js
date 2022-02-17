@@ -33,7 +33,7 @@ app.post("/geo",(req,res)=>{
         feelings:req.body[1]
     }
     projectData.unshift(newEntry)
-    // console.log(projectData)
+    // console.log(req.body)
 })
 
 app.get("/latlon",(req,res)=>{
