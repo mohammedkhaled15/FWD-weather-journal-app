@@ -22,7 +22,7 @@ app.use(cors())
 app.use(express.static('website'));
 
 // Setup Server
-const port = 3333
+const port = process.env.PORT || 3333
 const server = app.listen(port,()=>{console.log(`Here is my port: ${port}`)})
 
 /*************************************************************************************************/
