@@ -52,7 +52,7 @@ const retriveData = async (url="")=>{
     document.getElementById("date").innerHTML = `Date: ${newDate}`;
     document.getElementById('temp').innerHTML = `Temp now is <span>${Math.round(allData.temp)}</span> degrees`;
     document.getElementById('content').innerHTML = `My feelings:  ${allData.feelings} `;
-    document.getElementById("icon").setAttribute("src",` http://openweathermap.org/img/wn/${allData.icon}@2x.png`)
+    document.getElementById("icon").setAttribute("src",` https://openweathermap.org/img/wn/${allData.icon}@2x.png`)
     }
     catch(error) {
         console.log("error", error);
@@ -73,7 +73,7 @@ function triggerAll(){
     // })
     // .then((response)=>console.log(response))
 
-    .then((response)=>fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
+    .then((response)=>fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
 
     .then((response)=>{return response.json()})
 
