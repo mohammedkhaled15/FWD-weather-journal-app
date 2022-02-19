@@ -63,7 +63,11 @@ const retriveData = async (url="")=>{
 
 function triggerAll(){
 
+<<<<<<< HEAD
     fetch(`${baseUrl}${zip.value}&appid=${apiKey}`)
+=======
+    fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip.value}&appid=${apiKey}`)
+>>>>>>> 2687703724d40d7c8a09b7f59e61f8f4905091d9
 
     .then((response)=>{return response.json()})
 
