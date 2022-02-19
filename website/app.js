@@ -7,6 +7,7 @@ let feeling = document.getElementById("feelings")
 
 // Personal API Key for OpenWeatherMap API
 const apiKey = 'f3df22d37e0ab270347f62a9b3d4cc89&units=metric';
+const baseUrl = "https://api.openweathermap.org/geo/1.0/zip?zip="
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -62,7 +63,7 @@ const retriveData = async (url="")=>{
 
 function triggerAll(){
 
-    fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zip.value}&appid=${apiKey}`)
+    fetch(`${baseUrl}${zip.value}&appid=${apiKey}`)
 
     .then((response)=>{return response.json()})
 
