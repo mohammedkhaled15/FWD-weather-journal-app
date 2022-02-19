@@ -62,7 +62,7 @@ const retriveData = async (url="")=>{
 
 function triggerAll(){
 
-    fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zip.value}&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip.value}&appid=${apiKey}`)
 
     .then((response)=>{return response.json()})
 
@@ -72,7 +72,7 @@ function triggerAll(){
     // })
     // .then((response)=>console.log(response))
 
-    .then((response)=>fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
+    .then((response)=>fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
 
     .then((response)=>{return response.json()})
 
