@@ -59,19 +59,20 @@ const retriveData = async (url="")=>{
     }
 }
 
+const getLatLon = async (url="")=>{
+    const response = await fetch(url)
+    const data = await response.json()
+    if(data.cod === "404"){
+        throw new Error("wrong zip code")
+    }
+    return data;
+}
 
 
 function triggerAll(){
 
-    fetch(`${baseUrl}${zip.value}&appid=${apiKey}`)
 
-    .then((response)=>{return response.json()})
-
-    // .then((response)=>{
-    //     response.cod === "404"?alert("Cannot Find ZipCode"):response
-    //     // console.log(response.cod)
-    // })
-    // .then((response)=>console.log(response))
+    getLatLon(`${baseUrl}${zip.value}&appid=${apiKey}`)
 
     .then((response)=>fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${response.lat}&lon=${response.lon}&appid=${apiKey}`))
 
@@ -80,5 +81,6 @@ function triggerAll(){
     .then((response)=>postGeoData("/geo",[response,feeling.value]))
 
     .then(retriveData("/allData"))
+    .catch(err=>console.log("rejected",err.message))
 
 }
